@@ -2,6 +2,8 @@ package entity_test
 
 import (
 	"bytes"
+	"testing"
+
 	"github.com/hyperjumptech/grule-rule-engine/ast"
 	"github.com/hyperjumptech/grule-rule-engine/builder"
 	engine2 "github.com/hyperjumptech/grule-rule-engine/engine"
@@ -9,7 +11,6 @@ import (
 	"github.com/kennykarnama/checkout-challenge/cart/entity"
 	stockEntity "github.com/kennykarnama/checkout-challenge/stock/entity"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func Test__RuleCheckoutMacbookRaspberry(t *testing.T) {
@@ -79,6 +80,7 @@ func Test__RuleCheckoutMacbookRaspberry(t *testing.T) {
 }
 
 func Test__RuleGoogleHome(t *testing.T) {
+
 	lib := ast.NewKnowledgeLibrary()
 	rb := builder.NewRuleBuilder(lib)
 	err := rb.BuildRuleFromResource("Checkout Calculator", "0.0.1", pkg.NewFileResource("CheckoutRule.grl"))
