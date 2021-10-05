@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/kennykarnama/checkout-challenge.svg?branch=main)](https://app.travis-ci.com/kennykarnama/checkout-challenge)
+
 ## Project Overview
 
 This is a small project to simulate in simple way the way we add items and checkout from cart.
