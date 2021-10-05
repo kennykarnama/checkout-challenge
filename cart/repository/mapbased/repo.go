@@ -3,8 +3,9 @@ package mapbased
 import (
 	"context"
 	"fmt"
-	"github.com/kennykarnama/checkout-challenge/cart/entity"
 	"sync"
+
+	"github.com/kennykarnama/checkout-challenge/cart/entity"
 )
 
 type MemoryMappedRepository struct {
@@ -32,7 +33,8 @@ func (m *MemoryMappedRepository) Add(ctx context.Context, item *entity.CartItem)
 	} else {
 		existing, valid := raw.([]*entity.CartItem)
 		if !valid {
-			return fmt.Errorf("action=repo.add item=%s err=%v", *item, "not valid instance")
+			it := *item
+			return fmt.Errorf("action=repo.add item=%s err=%v", it.String(), "not valid instance")
 		}
 		existing = append(existing, item)
 		m.itemByID.Store(item.ID, existing)
