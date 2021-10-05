@@ -37,7 +37,7 @@ type StockItem struct {
 }
 ```
 
-Under this package we have repository & service to mantain data flow
+Under this package we have repository & service to mantain data flow and also graphql schema (https://github.com/kennykarnama/checkout-challenge/tree/main/stock/schema/graphql)
 
 ### cart package
 
@@ -88,6 +88,8 @@ rule GeneralPrice "Otherwise" {
 ```
 
 This `.grl` file will act as knowledge base to determine what price should be paid by the customer.
+
+Also in this package, there will graphsql schema: https://github.com/kennykarnama/checkout-challenge/blob/main/cart/schema/graphql/schema.graphqls
 
 ## Unit Test
 
