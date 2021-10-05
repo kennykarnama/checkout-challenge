@@ -1,4 +1,4 @@
-rule MacbookRule "When you buy Macbook, you got Raspberry PI B For free" {
+rule MacbookRule "When you buy Macbook, you got Raspberry PI B For free" salience 8 {
     when
         CartItem.SKU == "43N23P" && MappedCartItem["234234"].Qty > 0
     then
@@ -7,19 +7,19 @@ rule MacbookRule "When you buy Macbook, you got Raspberry PI B For free" {
         Retract("MacbookRule");
 }
 
-rule GoogleSpeaker "When you buy 3 google speaker, only pay for 2" {
+rule GoogleSpeaker "When you buy 3 google speaker, only pay for 2" salience 7{
     when
         CartItem.SKU == "120P90" && MappedCartItem[CartItem.SKU].Qty >= 3
     then
-        MappedCartItem[CartItem.SKU].Qty = MappedCartItem[CartItem.SKU].Qty - 1;
+        CartItem.Qty = CartItem.Qty - 1;
         Retract("GoogleSpeaker");
 }
 
-rule AlexSpeaker "When you buy more than 3 alexa speakers, got 10% off on each item of this speakers" {
+rule AlexSpeaker "When you buy more than 3 alexa speakers, got 10% off on each item of this speakers" salience 6 {
     when
-        CartItem.SKU == "A304SD" && MappedCartItem[CartItem.SKU].Qty >= 3
+        CartItem.SKU == "A304SD" && MappedCartItem[CartItem.SKU].Qty > 2
     then
-        MappedSku[CartItem.SKU].Price = MappedSku[CartItem.SKU].Price - (MappedSku[CartItem.SKU].Price * 10 / 100);
+        MappedSku[CartItem.SKU].Price = MappedSku[CartItem.SKU].Price - (MappedSku[CartItem.SKU].Price * 10.0 / 100.0);
         Retract("AlexSpeaker");
 }
 
