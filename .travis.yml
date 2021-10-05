@@ -16,8 +16,7 @@ script:
 deploy:
   provider: releases
   skip_cleanup: true
-  api_key:
-    secure: MDbM443zzelgqPnMfQUgJA
+  api_key: MDbM443zzelgqPnMfQUgJA
   file:
   - simple-checkout-system.windows.amd64.exe
   - simple-checkout-system.darwin.amd64
