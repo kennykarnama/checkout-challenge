@@ -10,7 +10,7 @@ before_install:
 script:
   - go clean -testcache
   - go test -v ./...
-  - gox -os="linux darwin windows" -arch="amd64" -output="build.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...;
+  - gox -os="linux darwin windows" -arch="amd64" -output="simple-checkout-system.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...;
 
 deploy:
   provider: releases
@@ -23,5 +23,5 @@ deploy:
   - simple-checkout-system.linux.amd64
   on:
     repo: kennykarnama/checkout-challenge
-    tags: true
+    tags: false
     branch: main
