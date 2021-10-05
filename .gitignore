@@ -1,0 +1,29 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# realize
+.realize.yaml
+
+#ignore pb folder and generated file from rogu
+grpc/pb/
+*.pb.go
+*.pb.gw.go
+*pb.rg.go
+
+#ignore vendor
+vendor/
+*.orig
+
+localconfig.json
+
+.idea
