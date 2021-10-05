@@ -3,6 +3,26 @@ language: go
 go:
   - 1.16.x
 
+before_install:
+  # gox simplifies building for multiple architectures
+  - go get github.com/mitchellh/gox
+
 script:
   - go clean -testcache
   - go test -v ./...
+  - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="logshare.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: MDbM443zzelgqPnMfQUgJA
+  file:
+  - simple-checkout-system.windows.amd64.exe
+  - simple-checkout-system.darwin.amd64
+  - simple-checkout-system.linux.amd64
+  on:
+    repo: kennykarnama/checkout-challenge
+    tags: true
+    condition: $LATEST = true
