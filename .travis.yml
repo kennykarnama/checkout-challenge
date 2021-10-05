@@ -12,15 +12,15 @@ script:
   - go test -v ./...
   - gox -os="linux darwin windows" -arch="amd64" -output="build.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...;
 
-
 deploy:
   provider: releases
   skip_cleanup: true
-  api_key: MDbM443zzelgqPnMfQUgJA
+  api_key:
+    secure: Jyq5Iv/gcC8MidrHqtw2vsBKz1WKFvmmiAJyODKdUeslacOmHWmYMLqyq8weSGUDqymtdiXWKhhtn1vB0Pu4TrRuw42/3M+gw81UcFX1GI1Dgea2R/Th6B/41vvCS2Xjr8no9GkRyRyL70djkVmrrZlYwUYzaP8aq5T2v4IBH9x5efBDLC7YOyj5cKHChQviuA4G5aAV3/3JLlnk8Q1wLl9325gpUYsaFmm2J04oKI453nfhS0QsCNIgvfDP6+h1AsVvH4frnwLj6AE0WqvY6nNhWygUkx0Y89L86QHSlvrLDcjfAQHldO8f0jZi1vCXyYgwUyjhdXzHTuN//PejSYUhg6IEHRUNGKuvfdJU6C8qvWlTvDp1DSPdUgc+86Rh9PdpXWMy8mV18YjSj5AIyfRHosTa7q/cYOCp0bCnjUrOkwiqtnTfza+MA+cKRrzsS3R4Z/BZR0YSdN6h3Uosy1bbAf4tAYN40Pgk4pBXavWq43Fmj8iNnyrINfsUcpsekvL8nnoLUdaACX7lHzQzMtMe3yIRAzaN8d94Ws/G6VdVfHNeS5CQnvZph4+QDHTTcCMutUNVLaIii9vs9b6FYklzSUDbO+wDlLqPc3wjemOflig1CXbc8ZZfkWYaH10tOPbE9rP0IxW5WJqVCyTr/33RNJnhnLsrhf/ULT3WNEY=
   file:
   - simple-checkout-system.windows.amd64.exe
   - simple-checkout-system.darwin.amd64
   - simple-checkout-system.linux.amd64
   on:
     repo: kennykarnama/checkout-challenge
-    tags: true
+    tags: false
