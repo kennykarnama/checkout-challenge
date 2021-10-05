@@ -23,4 +23,5 @@ deploy:
   - simple-checkout-system.linux.amd64
   on:
     repo: kennykarnama/checkout-challenge
-    tags: false
+    tags: true
+    branch: main
