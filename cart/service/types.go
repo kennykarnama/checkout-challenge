@@ -6,6 +6,6 @@ import (
 )
 
 type CartService interface {
-	Checkout(ctx context.Context, ID string, items []*entity.CartItem) error
+	Checkout(ctx context.Context, ID string) (*entity.Checkout, error)
 	Add(ctx context.Context, items *entity.CartItem) error
 }
