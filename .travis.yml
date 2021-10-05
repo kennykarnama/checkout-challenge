@@ -10,7 +10,7 @@ before_install:
 script:
   - go clean -testcache
   - go test -v ./...
-  - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="logshare.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+  - gox -os="linux darwin windows" -arch="amd64" -output="build.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...;
 
 
 deploy:
