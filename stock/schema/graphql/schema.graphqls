@@ -1,0 +1,20 @@
+type Stock {
+    SKU: String!
+    Name: String!
+    Price(unit: PriceCurrency = $): Float!
+    InventoryQty: Int!
+}
+
+type Mutation {
+    # Add new stock info to repository
+    CreateStock(input: Stock!): Stock!
+    # Decrement each time a stock is occupied
+    # this API might be not needed if we want to protect flow of stock decrement
+    # this API returns latest qty of stock
+    DecrementStockQtyBySku(sku: String!, decrementValue: Float!) Float!
+}
+
+type Query {
+    # GetStocks by list of SKU
+    GetStocksBySKU(skus: [String!]) [Stock!] 
+}

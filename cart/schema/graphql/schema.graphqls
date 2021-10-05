@@ -1,0 +1,21 @@
+type CartItem {
+    ID: String!
+    SKU: String!
+    Qty: Int!
+}
+
+type CheckoutResult {
+    TotalPrice: String!
+}
+
+type Mutation {
+    # Add item to cart
+    AddItem(input: CartItem!) [CartItem!]
+    # checkout cart
+    Checkout(ID: String!) CheckoutResult!   
+}
+
+type Query {
+    # GetCartItems by ID
+    GetCartItemsByID(ID: string!) [CartItem!]
+}
