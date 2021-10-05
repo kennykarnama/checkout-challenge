@@ -9,6 +9,15 @@ Limitation
 * [ ] Doesn't support custom data loading (we can add it later on)
 * [ ] Currency formatting is tied to `$`
 
+This project also assumes input given by user is in list of SKU instead of items' name. 
+
+Rationale:
+
+- SKU give consistent behavior because we don't need to handle spacing or other useless formatting if we use item.name instead
+- data consistency can be guaranteed
+
+Also, this project use special identifier called `ID` to group items of cart. If we correlate with real cases, we might found that `ID` can correpond to `userID` since a cart is owned by a user.
+
 ## Project Structure
 
 This project consists two main packages
