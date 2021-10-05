@@ -25,4 +25,3 @@ deploy:
   on:
     repo: kennykarnama/checkout-challenge
     tags: true
-    condition: $LATEST = true
